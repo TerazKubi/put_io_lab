@@ -1,4 +1,5 @@
-jutrzejsza data
+pierwsza lina1
+
 # put_io_lab
 
 INF148326
