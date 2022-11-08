@@ -50,10 +50,11 @@ Osoba chcąca zakupić produkt na aukcji.
 
 [Sprzedający](#ac1):
 * [UC1](#uc1): Wystawienie produktu na aukcję
-* ...
+* [UC2](#uc2): Przekazanie produktu kupującemu
 
 [Kupujący](#ac2)
-* ...
+* [UC3](#uc3): Wystawienie oferty
+* [UC4](#uc4): Przekazanie opłaty za produkt
 
 ---
 <a id="uc1"></a>
@@ -62,7 +63,7 @@ Osoba chcąca zakupić produkt na aukcji.
 **Aktorzy:** [Sprzedający](#ac1)
 
 **Scenariusz główny:**
-1. [Sprzedający](#ac1) zgłasza do systemu chęć wystawienia produktu na aukcję.
+1. [Sprzedający](#ac1) zgłasza do systemu chęć wystawienia przedmiotu na aukcję.
 2. System prosi o podanie danych produktu i ceny wywoławczej.
 3. [Sprzedający](#ac1) podaje dane produktu oraz cenę wywoławczą.
 4. System weryfikuje poprawność danych.
@@ -77,17 +78,72 @@ Osoba chcąca zakupić produkt na aukcji.
 ---
 
 <a id="uc2"></a>
-### UC2: ...
+### UC2: Przekazanie produktu wygranemu
 
-**Aktorzy:** [Sprzedający](#ac1), [Kupujący](#ac2), ...
+**Aktorzy:** [Sprzedający](#ac1), [Kupujący](#ac2)
 
 **Scenariusz główny:**
-1. ...
+1. [Kupujący](#ac2) zgłasza do systemu chęć odbioru przedmiotu.
+2. System prosi o podanie danych kontaktowych oraz o wybór sposobu doręczenia przesyłki.
+3. [Kupujący](#ac2) podaje dane kontaktowe i wybiera sposób doręczenia przesyłki.
+4. System weryfikuje poprawność wprowadzonych danych.
+5. System informuje o poprawnym wprowadzeniu danych.
+6. System informuje [Sprzedającego](#ac1) o nowym przedmiocie do wysyłki.
+7. [Sprzedający](#ac1) zgłasza do systemu chęć wysłania przedmiotu.
+8. System prosi o padanie odpowiednich danych.
+9. System weryfikuje poprawność wprowadzonych danych.
+10. System wysyła informację do firmy kurierskiej o nadanej paczce.
+
 
 **Scenariusze alternatywne:** 
 
-1.A. ...
-* 4.A.1. ...
+4.A. Podano niepoprawne lub niekompletne dane produktu.
+* 4.A.1. System informuje o błędnie podanych danych.
+* 4.A.2. Przejdź do kroku 2.
+
+9.A. Podano niepoprawne lub niekompletne dane produktu.
+* 9.A.1. System informuje o błędnie podanych danych.
+* 9.A.2. Przejdź do kroku 2.
+
+---
+
+<a id="uc3"></a>
+### UC3: Wystawienie oferty
+
+**Aktorzy:** [Kupujący](#ac2)
+
+**Scenariusz główny:**
+1. [Kupujący](#ac2) zgłasza do systemu chęć podania nowej oferty.
+2. System prosi o podanie kwoty.
+3. [Kupujący](#ac2) podaje nową kwotę.
+4. System weryfikuje wprowadzone dane.
+5. System informuje o pomyślnym dodaniu oferty.
+
+**Scenariusze alternatywne:** 
+
+4.A. Podano niepoprawne dane lub kwota nie przekracza aktualnej najwyższej oferty.
+* 4.A.1. System informuje o błędnie podanych danych.
+* 4.A.2. Przejdź do kroku 2.
+
+---
+
+<a id="uc4"></a>
+### UC4: Przekazanie opłaty za produkt
+
+**Aktorzy:** [Kupujący](#ac2)
+
+**Scenariusz główny:**
+1. [Kupujący](#ac2) zgłasza do systemu chęć opłaty wygranego przedmiotu.
+2. System prosi o wybór banku.
+3. System przekierowywuje użytkownika na stronę banku.
+4. System odbiera status transakcji z banku.
+5. System informuje o pomyślnym dokonaniu opłaty.
+
+**Scenariusze alternatywne:** 
+
+4.A. System odebrał status informującu o błedzie podczas transakcji.
+* 4.A.1. System informuje o błędzie.
+* 4.A.2. Przejdź do kroku 2.
 
 ---
 
@@ -117,9 +173,12 @@ Aukcję wygrywa ten z [Kupujący](#ac2)ch, który w momencie jej zakończenia (u
 ## Macierz CRUDL
 
 
-| Przypadek użycia                                  | Aukcja | Produkt | ... |
-| ------------------------------------------------- | ------ | ------- | --- |
-| UC1: Wystawienia produktu na aukcję               |    C   |    C    | ... |
-| ???                                               |  ...   |  ...    | ... |
+| Przypadek użycia                                  | Aukcja | Produkt | 
+| ------------------------------------------------- | ------ | ------- | 
+| UC1: Wystawienia produktu na aukcję               |    C   |    C    | 
+| UC2: Przekazanie produktu wygranemu               |     D  |    D    | 
+| UC3: Wystawienie oferty                           |    U   |        | 
+| UC4: Przekazanie opłaty za produkt                |    U   |        | 
+
 
 
