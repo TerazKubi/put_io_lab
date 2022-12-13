@@ -15,6 +15,11 @@ public class ExpenseManager {
 		this.fancyService = new FancyService();
 	}
 
+	public ExpenseManager(ExpenseRepository rep, FancyService service) {
+		this.expenseRepository = rep;
+		this.fancyService = service;
+	}
+
 	public long calculateTotal() {
 		List<Expense> expenses = expenseRepository.getExpenses();
 
