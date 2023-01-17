@@ -1,0 +1,15 @@
+zadanie1
+
+dla kodu bazowego: czas odpowiedzi: 3278; przepustowość: 1.2/sec
+
+dla kodu po modyfikacji: czas odpowiedzi: 2406; przepustowość: 18.4/min
+
+Modyfikacja:
+	Metoda averageSpendings była uruchamiana w pętli dla każdego klienta osobna.
+	Dodałem zmienną która przechowuje wartość zwracaną przez funkcje averageSpendings.
+
+
+Zadanie2
+początkowa średnia przepustowość: 6.8/sec
+
+rekomendowana liczba drukarek: 11
